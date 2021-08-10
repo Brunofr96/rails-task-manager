@@ -1,0 +1,15 @@
+<h2><%= @task.title %></h2>
+<p><%= @task.details %></p>
+
+<% if @task.completed == false %>
+  <p><i class="far fa-square"></i><%= @task.completed %></p>
+<% else %>
+  <p><i class="far fa-check-square"></i><%= @task.completed %></p>
+<% end %>
+
+<i class="fas fa-undo"><%= link_to "back to list", "/tasks" %></i>
+<i class="fas fa-wrench"><%= link_to "Edit the task", edit_task_path(@task) %></i>
+
+<%= link_to task_path(@task), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <i class="far fa-trash-alt"></i>
+<% end %>
